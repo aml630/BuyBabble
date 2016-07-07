@@ -6,14 +6,9 @@
    
     @foreach (var article in @ViewBag.Articles)
     {
-
         <a style="background-image:url('@article.ArticlePic');" class="articleParent" href="~/Post/@article.ArticleSlug">
-        <p>@article.ArticleName</p>
         </a>
     }
-
-
-   
 
 </div>
 
@@ -27,8 +22,6 @@
             <input name="slug" plaeholder="Article Slug" />
             <button>MakeIt</button>
         </form>
-
-
 
 }
 

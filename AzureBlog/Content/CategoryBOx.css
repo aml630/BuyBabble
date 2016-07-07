@@ -52,14 +52,7 @@ background-color: #F8F8F8 ;
     border: 1px solid #d1d1d1;
     border: 1px solid #d1d1d1;
 }
-.subCatParent {
-     display: flex;
-     flex-wrap: wrap;
-    justify-content: space-around;
-    /*align-content: space-between;*/
-    margin-left: 5%;
-        margin-right: 5%;
-}
+
 
 .product-box {
   transition-duration: .5s;
@@ -74,10 +67,10 @@ background-color: #F8F8F8 ;
 
 }
 
-.product-box:hover{
+/*.product-box:hover{
   transition-duration: .5s;
   box-shadow: green 0px 3px 12px 1px;
-}
+}*/
 
 .product-box h2 {
 margin-bottom: 20px;
