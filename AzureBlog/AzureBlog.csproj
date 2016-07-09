@@ -404,6 +404,14 @@
     <Content Include="Views\Category\_Tweet.cshtml" />
     <Content Include="Views\Category\_AddProduct.cshtml" />
     <Content Include="Views\Category\_AddReview.cshtml" />
+    <Content Include="Views\Article\_addArticle.cshtml" />
+    <Content Include="Views\Article\_tableOfContents.cshtml" />
+    <Content Include="Views\Article\_addSegment.cshtml" />
+    <Content Include="Views\Article\_firstProduct.cshtml" />
+    <Content Include="Views\Article\_productList.cshtml" />
+    <Content Include="Views\Article\_userAddSegment.cshtml" />
+    <Content Include="Views\Article\_addProduct.cshtml" />
+    <Content Include="Views\Article\_segmentBox.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -104,10 +104,6 @@ input, select, textarea {
     text-align: center;
 }
 
-.productRow {
-    display: flex;
-    /*justify-content: space-around;*/
-}
 
 .itemPrice {
     width: 70px;
@@ -115,9 +111,6 @@ input, select, textarea {
     margin-right: 60px;
 }
 
-.verticalAlign {
-
-}
 
 .holderdiv {
   display: flex;
@@ -156,4 +149,50 @@ input, select, textarea {
     width: 800px;
    margin-left: auto;
    margin-right: auto;
+} 
+
+    .amazonPic {
+        width: 193px;
+        height: 80%;
+        background-color: black;
+        margin-top:auto;
+        margin-bottom:auto;
+        color:yellow;
+    }
+
+    .productListLink {
+        width: 100%;
+    }
+
+
+        .picPrice {
+       height: auto;
+       margin-left: 5px;
+       margin-top: 5px;
+
+    }
+    .picPrice p {
+        font-weight: bold;
+        color: white;
+
+    }
+
+    .productLink{
+    width: 80%;
+    }
+    .productRow {
+    display: flex;
+   background-color:lightgreen;
+   width: 100%;
 }
+    .rowAndButton{
+        display: flex;
+    }
+
+    .productName {
+        margin-top: auto;
+        margin-bottom: auto;
+        font-weight: bold;
+        color: white;
+        width: 498px;
+    }

@@ -1,0 +1,22 @@
+﻿@model AzureBlog.Models.ArticleModel
+
+<div class="tableOfContents">
+    @foreach (var title in Model.ArticleSegments)
+
+    {
+        <div class="holderDiv">
+
+            @foreach (var product in ViewBag.Products)
+            {
+                if (product.ArticleId == title.ArticleSegmentId)
+                {
+                    <img class="tblImgs" src="@product.ProductImg" height="50" width="50" />
+                    break;
+                }
+
+            }
+            <a class="verticalAlign" href="#@title.ArticleSegmentTitle">@title.ArticleSegmentTitle</a>
+        </div>
+
+    }
+</div>

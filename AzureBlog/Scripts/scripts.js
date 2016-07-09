@@ -94,5 +94,5 @@ $('.tweet').submit(function (event) {
 
 
 $(".showProducts").click(function () {
-    $(this).next(".segmentProducts").fadeToggle("slow");
+    $(this).parent().next().next().next().fadeToggle("slow");
 })

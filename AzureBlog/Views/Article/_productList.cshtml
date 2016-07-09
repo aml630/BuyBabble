@@ -1,0 +1,30 @@
+﻿@model AzureBlog.Models.ArticleSegmentModel
+
+
+<div class="segmentProducts">
+    @foreach (var product in ViewBag.Products)
+    {
+        if (product.ArticleId == Model.ArticleSegmentId)
+        {
+
+            <div class="rowAndButton">
+                <a class="productListLink" href="@product.ProductLink">
+                    <div class="productRow">
+                        <div class="picPrice">
+                            <img class="segmentImgs" src="@product.ProductImg" height="30" width="30" />
+                            <p>$@product.ProductPrice</p>
+                        </div>
+                        <p class="productName">@product.ProductName</p>
+                        <span class="btn btn-danger amazonPic">Get On Amazon!</span>
+                    </div>
+     
+                </a>
+               
+            </div>
+
+        }
+
+    }
+
+</div>
+

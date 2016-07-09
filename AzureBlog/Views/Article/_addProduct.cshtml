@@ -1,0 +1,18 @@
+﻿
+       @if (User.IsInRole("Admin"))
+            {
+<h1>Add product</h1>
+<form action="~/Default/Article/AddProduct">
+    <input name="segId" hidden value="@segment.ArticleSegmentId" />
+    <input name="artSlug" hidden value="@article.ArticleSlug" />
+
+    <hr />
+
+    <input name="ASIN" placeholder="ASIN" />
+    <hr />
+
+
+    <button>Add Product</button>
+</form>
+
+            }

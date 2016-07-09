@@ -3,121 +3,39 @@
 @{
     ViewBag.Title = "Article";
 }
-
 <div class="wholePost">
-
     @foreach (var article in Model)
     {
-
-
         <img class="coverPic" src="@article.ArticlePic" />
-
-
         <div class="greyBox">
             <div class="alignCenter">
                 <p class="tblContents">Table of contents</p>
             </div>
             <hr />
-            <div class="tableOfContents">
-                @foreach (var title in article.ArticleSegments)
-
-                {
-                    <div class="holderDiv">
-
-                        @foreach (var product in ViewBag.Products)
-                        {
-                            if (product.ArticleId == title.ArticleSegmentId)
-                            {
-                                <img class="tblImgs" src="@product.ProductImg" height="50" width="50" />
-                                break;
-                            }
-
-                        }
-                        <a class="verticalAlign" href="#@title.ArticleSegmentTitle">@title.ArticleSegmentTitle</a>
-                    </div>
-
-                }
-            </div>
+            @Html.Partial("_tableOfContents", article);
         </div>
-
         foreach (var segment in article.ArticleSegments.OrderByDescending(x => x.Votes))
         {
-
-
-
-
             <div class="greyBox">
-
                 <form class="upvote" action="~/Default/Article/Upvote">
                     <input name="segId" hidden value="@segment.ArticleSegmentId" />
                     <input name="artSlug" hidden value="@article.ArticleSlug" />
                     @*<button class="likeButton btn btn-success btn-sm">
                            <span>Like!</span><span class="voteNum">@segment.Votes</span>
                         </button>*@
-
                     <button id="heart">
                         @segment.Votes
                     </button>
-
                 </form>
 
                 <p id="@segment.ArticleSegmentTitle" class="segTitle">SegTitle:  @segment.ArticleSegmentTitle</p>
                 <p class="bodyText">
-
-
-                    Curabitur viverra rhoncus tellus. Duis non condimentum lacus. Aliquam id feugiat mauris, sit amet varius metus. Sed fringilla mattis nibh, nec viverra tellus consectetur ut. Integer et libero viverra nibh elementum cursus. Nulla et vestibulum est, ac consectetur erat. Pellentesque rutrum turpis et magna tempus maximus. Curabitur aliquam scelerisque scelerisque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse efficitur ultrices diam eget aliquet. Nam sed massa magna.
-
-                    Suspendisse dolor ipsum, viverra non risus in, vehicula tristique turpis. Donec at condimentum metus, ac porta erat. Praesent convallis maximus diam, eget pellentesque dolor posuere ut. Donec ultrices, leo at rutrum iaculis, ante mauris venenatis dui, et pharetra enim tortor quis eros. Maecenas risus ligula, varius nec rhoncus accumsan, condimentum in ipsum. Curabitur gravida dignissim mi, quis convallis turpis placerat in. Aenean ullamcorper vehicula est, et malesuada lorem bibendum id. Quisque malesuada nisi et ex faucibus elementum. Sed tincidunt gravida tellus, vitae dictum ex pharetra at. Fusce dictum sem erat, in ultrices nisi maximus non. Nunc sit amet urna non velit pellentesque fermentum.
-
-                    Generated 3 paragraphs, 246 words, 1681 bytes of Lorem
-
+                    Curabitur viverra rhoncus tellus. Duis non condimentum lacus. Aliquam id feugiat mauris, sit amet varius metus. Sed fringilla mattis nibh, nec viverra tellus consectetur ut. Integer et libero viverra nibh elementum
                 </p>
-
-                @foreach (var firstProduct in ViewBag.Products)
-                {
-                    if (firstProduct.ArticleId == segment.ArticleSegmentId)
-                    {
-                        <div class="showProducts btn  btn-default btn-block">
-                            <div class="productRow">
-                                <a href="@firstProduct.ProductLink"><img class="segmentImgs" src="@firstProduct.ProductImg" height="30" width="30" /></a>
-                                <a href="@firstProduct.ProductLink" class="itemPrice">
-                                    <p class="btn btn-info">$@firstProduct.ProductPrice</p>
-                                </a>
-                                <a href="@firstProduct.ProductLink"><p class="btn btn-success">@firstProduct.ProductName</p></a>
-
-                            </div>
-                        </div>
-                        break;
-
-
-                    }
-                }
-
-
-                <div class="segmentProducts">
-                    @foreach (var product in ViewBag.Products)
-                    {
-                        if (product.ArticleId == segment.ArticleSegmentId)
-                        {
-
-                            <div class="productRow">
-                                <a href="@product.ProductLink"><img class="segmentImgs" src="@product.ProductImg" height="30" width="30" /></a>
-                                <a href="@product.ProductLink" class="itemPrice">
-                                    <p class="btn btn-info">$@product.ProductPrice</p>
-                                </a>
-                                <a href="@product.ProductLink"><p class="btn btn-success">@product.ProductName</p></a>
-
-                            </div>
-
-                        }
-
-                    }
-
-                </div>
+                @Html.Partial("_firstProduct", segment)
+                @Html.Partial("_productList", segment)
+               
             </div>
-
-
-
 
             if (User.IsInRole("Admin"))
             {
@@ -125,57 +43,17 @@
                 <form action="~/Default/Article/AddProduct">
                     <input name="segId" hidden value="@segment.ArticleSegmentId" />
                     <input name="artSlug" hidden value="@article.ArticleSlug" />
-
                     <hr />
-
                     <input name="ASIN" placeholder="ASIN" />
                     <hr />
-
-
                     <button>Add Product</button>
                 </form>
-
             }
         }
 
-
-        if (User.IsInRole("Admin"))
-        {
-            <h2>Add New Segment</h2>
-            <form class="addArticle" action="~/Default/Article/AddSegment">
-                <input name="id" hidden value="@article.ArticleId" />
-                <input name="ArticleSlug" hidden value="@article.ArticleSlug" />
-                <hr />
-                <input name="Title" value="Lorum" placeholder="Segment Title" />
-                <hr />
-                <textarea name="Body" value="Lorum" placeholder="Segment Body"></textarea>
-                <hr />
-                <textarea name="Par2" value="Lorum" placeholder="Optional Par2"></textarea>
-                <hr />
-                <textarea name="Par3" value="Lorum" placeholder="Optional Par3"></textarea>
-                <hr />
-                <input name="Image" value="Lorum" placeholder="Optional Image" />
-                <hr />
-                <input name="Video" value="Lorum" placeholder="Optional Video" />
-                <hr />
-                <button>Add Seg</button>
-            </form>
-        }
-
-        @*<form class="greyBox alignCenter">
-                <h3>Did We Forget Something Awesome? Add It To The List!</h3>
-                <p>Your email address won't be published.  Required fields are marked *</p>
-                <label>Your Favorite Thing*</label>
-                <textarea class="form-control-textarea userAdd"></textarea>
-                <label>Name*</label>
-                <input class="form-control-input"/>
-                <label>Email*</label>
-                <input class="form-control-input"/>
-                <label>Website/Twitter</label>
-                <input class="form-control-input"/>
-                <button class="btn btn-primary">Submit</button>
-            </form>*@
-
+        @Html.Partial("_addArticle", article);
+        @Html.Partial("_addSegment", article);
+        @*@Html.Partial("_userAddSegment");*@
     }
 
 </div>
