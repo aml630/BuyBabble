@@ -12,7 +12,7 @@
                 <p class="tblContents">Table of contents</p>
             </div>
             <hr />
-            @Html.Partial("_tableOfContents", article);
+            @Html.Partial("_tableOfContents", article)
         </div>
         foreach (var segment in article.ArticleSegments.OrderByDescending(x => x.Votes))
         {
@@ -20,21 +20,45 @@
                 <form class="upvote" action="~/Default/Article/Upvote">
                     <input name="segId" hidden value="@segment.ArticleSegmentId" />
                     <input name="artSlug" hidden value="@article.ArticleSlug" />
-                    @*<button class="likeButton btn btn-success btn-sm">
-                           <span>Like!</span><span class="voteNum">@segment.Votes</span>
-                        </button>*@
+          
                     <button id="heart">
                         @segment.Votes
                     </button>
                 </form>
 
-                <p id="@segment.ArticleSegmentTitle" class="segTitle">SegTitle:  @segment.ArticleSegmentTitle</p>
+                <p id="@segment.ArticleSegmentTitle" class="segTitle"> @segment.ArticleSegmentTitle</p>
+
+                @if (segment.ArticleSegmentVideo != null && segment.ArticleSegmentVideo != "Optional Video")
+                {
+                    <iframe class="segmentVideo" src="https://www.youtube.com/embed/@segment.ArticleSegmentVideo" frameborder="0" allowfullscreen></iframe>
+                }
+      
+                
+
                 <p class="bodyText">
-                    Curabitur viverra rhoncus tellus. Duis non condimentum lacus. Aliquam id feugiat mauris, sit amet varius metus. Sed fringilla mattis nibh, nec viverra tellus consectetur ut. Integer et libero viverra nibh elementum
+                 @segment.ArticleSegmentPar1
                 </p>
+                <p class="bodyText">
+                    @segment.ArticleSegmentPar2
+                </p>
+                <p class="bodyText">
+                    @segment.ArticleSegmentPar3
+                </p>
+
+                @if (segment.ArticleSegmentAuthor != null && segment.ArticleSegmentWebsite != null)
+                {
+                    <a href="@segment.ArticleSegmentWebsite">-@segment.ArticleSegmentAuthor</a>
+                }
+                else if (segment.ArticleSegmentAuthor != null)
+                {
+                    <p>-@segment.ArticleSegmentAuthor</p>
+                }
+
+
+
                 @Html.Partial("_firstProduct", segment)
                 @Html.Partial("_productList", segment)
-               
+
             </div>
 
             if (User.IsInRole("Admin"))
@@ -48,12 +72,18 @@
                     <hr />
                     <button>Add Product</button>
                 </form>
+                <hr />
+                <form action="~/Default/Article/DeleteSegment">
+                    <input name="segId" hidden value="@segment.ArticleSegmentId" />
+                    <input name="ArticleSlug" hidden value="@article.ArticleSlug" />
+                    <button>Delete</button>
+                </form>
             }
-        }
 
-        @Html.Partial("_addArticle", article);
+
+        }
         @Html.Partial("_addSegment", article);
-        @*@Html.Partial("_userAddSegment");*@
+        @Html.Partial("_userAddSegment", article);
     }
 
 </div>

@@ -38,5 +38,8 @@ namespace AzureBlog.Models
         public DbSet<ReviewModel> Reviews { get; set; }
         public DbSet<ArticleModel> Articles { get; set; }
 
+        public DbSet<VoterModel> Voters { get; set; }
+
+
     }
 }

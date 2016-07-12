@@ -21,7 +21,7 @@ namespace AzureBlog.Controllers
         // GET: Category
         public ActionResult Index(string id)
         {
-            var clickedCategory = db.Categories.Where(x =>x.CategorySlug== id).Include(category => category.Products).Include(category=>category.Segments).ToList();
+            var clickedCategory = db.Categories.Where(x => x.CategorySlug == id).Include(category => category.Products).Include(category => category.Segments).ToList();
 
             ViewBag.Reviews = db.Reviews.ToList();
 
@@ -30,7 +30,7 @@ namespace AzureBlog.Controllers
 
         public ActionResult Product(string id, string productId)
         {
-        
+
             var clickedProduct = db.Products.FirstOrDefault(x => x.ProductSlug == productId);
             ViewBag.Products = db.Products.Where(x => x.CategoryId == clickedProduct.CategoryId);
             return View("Product", clickedProduct);
@@ -47,7 +47,7 @@ namespace AzureBlog.Controllers
 
             db.SaveChanges();
 
-            var clickedCategory = db.Categories.Where(x => x.CategoryId == id).Include(category => category.Products).Include(category=>category.Segments).ToList();
+            var clickedCategory = db.Categories.Where(x => x.CategoryId == id).Include(category => category.Products).Include(category => category.Segments).ToList();
             return View("Index", clickedCategory);
         }
         public ActionResult AddSegment(int id, string Title, string Body, string Par2, string Par3, string Image, string Video)
@@ -75,7 +75,7 @@ namespace AzureBlog.Controllers
             newResource.SegmentId = id;
             newResource.ResourceLink = Link;
             newResource.ResourceTitle = Title;
-          
+
 
             db.Resources.Add(newResource);
             db.SaveChanges();
@@ -125,8 +125,8 @@ namespace AzureBlog.Controllers
 
         public ActionResult AddProduct(int catId, string ASIN, string catSlug)
         {
-            
-       
+
+
 
             var authentication = new AmazonAuthentication();
             authentication.AccessKey = "AKIAICYKGU63S3DNQMZQ";
@@ -151,7 +151,7 @@ namespace AzureBlog.Controllers
 
             db.SaveChanges();
 
-           
+
 
             return RedirectToAction("Index", "Category", new { id = catSlug });
         }

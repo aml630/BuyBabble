@@ -6,7 +6,7 @@
    
     @foreach (var article in @ViewBag.Articles)
     {
-        <a style="background-image:url('@article.ArticlePic');" class="articleParent" href="~/Post/@article.ArticleSlug">
+        <a style="background-image:url('@article.ArticlePic');" class="articleParent" href="~/@article.ArticleSlug">
         </a>
     }
 
@@ -19,7 +19,8 @@
     <h3>New Article!</h3>
         <form action="~/Default/Article/CreateArticle">
             <input name="name" placeholder="Article Title" />
-            <input name="slug" plaeholder="Article Slug" />
+            <input name="slug" placeholder="Article Slug" />
+            <input name="pic" placeholder="Article Pic" />
             <button>MakeIt</button>
         </form>
 

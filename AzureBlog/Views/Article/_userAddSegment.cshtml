@@ -1,14 +1,20 @@
-﻿
-<form class="greyBox alignCenter">
+﻿@model AzureBlog.Models.ArticleModel
+
+<form class="greyBox alignCenter" action="~/Default/Article/UserAddSegment">
         <h3>Did We Forget Something Awesome? Add It To The List!</h3>
         <p>Your email address won't be published.  Required fields are marked *</p>
         <label>Your Favorite Thing*</label>
-        <textarea class="form-control-textarea userAdd"></textarea>
+        <input name="userTitle" class="form-control-input">
+        <label>Why Is It Awesome*</label>
+        <textarea name="userDescription"  class="form-control-textarea userAdd"></textarea>
         <label>Name*</label>
-        <input class="form-control-input"/>
+        <input name="userName" class="form-control-input"/>
         <label>Email*</label>
-        <input class="form-control-input"/>
+        <input name="userEmail" class="form-control-input"/>
         <label>Website/Twitter</label>
-        <input class="form-control-input"/>
+        <input name="userWebsite" class="form-control-input"/>
+
+    <input name="id" hidden value="@Model.ArticleId" />
+    <input name="ArticleSlug" hidden value="@Model.ArticleSlug" />
         <button class="btn btn-primary">Submit</button>
     </form>

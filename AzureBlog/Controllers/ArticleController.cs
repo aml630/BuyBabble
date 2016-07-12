@@ -20,20 +20,22 @@ namespace AzureBlog.Controllers
 
             var article = db.Articles.Where(x => x.ArticleSlug == articleSlug).Include(x => x.ArticleSegments).ToList();
 
-            List<ProductModel> sortedProducts = db.Products.OrderByDescending(x => x.ProductPrice).ToList();
+            //var article = db.Articles.Where(x => x.ArticleSlug == articleSlug).Include(x => x.ArticleSegments).Include(i => i.ArticleSegments.Select(c => c.Products)).ToList();
 
+            //var testProducts = db.ArticleSegments.Where(x =>x.ArticleSegmentId == 17).Include(d=>d.Products).ToList();
+
+            List<ProductModel> sortedProducts = db.Products.OrderByDescending(x => x.ProductPrice).ToList();
             ViewBag.Products = sortedProducts;
-            ViewBag.First = sortedProducts.First();
 
             return View(article);
         }
-        public ActionResult CreateArticle(string name, string slug)
+        public ActionResult CreateArticle(string name, string slug, string pic)
         {
             var article = new ArticleModel();
             article.ArticleName = name;
             article.ArticleSlug = slug;
-            article.ArticlePic = "http://cats.com/wp-content/uploads/2016/01/1200x280.jpg";
-            article.ArticlePublished = false;
+            article.ArticlePic = "/Pics/"+ pic;
+            article.ArticlePublished = true;
             article.Intro = "intro";
             article.FbShares = 0;
             article.TwitShares = 0;
@@ -61,6 +63,10 @@ namespace AzureBlog.Controllers
 
             var article = db.Articles.Where(x => x.ArticleSlug == ArticleSlug).Include(x => x.ArticleSegments).ToList();
 
+
+            List<ProductModel> sortedProducts = db.Products.OrderByDescending(x => x.ProductPrice).ToList();
+            ViewBag.Products = sortedProducts;
+            ViewBag.First = sortedProducts.First();
 
             return View("Post", article);
         }
@@ -99,15 +105,28 @@ namespace AzureBlog.Controllers
 
             ViewBag.Products = db.Products.ToList();
 
-            return View("Post", article);
+
+            return RedirectToAction("Post", new { articleSlug = artSlug});
         }
 
         public ActionResult UpVote(int segId, string artSlug)
         {
+            string thisIp = GetUserIP();
 
-            ArticleSegmentModel thisSeg = db.ArticleSegments.FirstOrDefault(x => x.ArticleSegmentId == segId);
-            thisSeg.Votes = thisSeg.Votes + 1;
-            db.SaveChanges();
+            var alreadyVoted = db.Voters.FirstOrDefault(voter => voter.VoterIPAddress == thisIp && voter.ArticleSegmentId == segId);
+
+            if (alreadyVoted == null)
+            {
+                var newVote = new VoterModel();
+                newVote.VoterIPAddress = thisIp;
+                newVote.ArticleSegmentId = segId;
+                db.Voters.Add(newVote);
+                //db.SaveChanges();
+
+                ArticleSegmentModel thisSeg = db.ArticleSegments.FirstOrDefault(x => x.ArticleSegmentId == segId);
+                thisSeg.Votes = thisSeg.Votes + 1;
+                db.SaveChanges();
+            }
 
             //List<ArticleSegmentModel> sortedLiskt = new List<ArticleSegmentModel>();
 
@@ -123,6 +142,61 @@ namespace AzureBlog.Controllers
             ViewBag.Products = db.Products.ToList();
 
             return View("Post", article);
+        }
+
+        private string GetUserIP()
+        {
+            string ipList = Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
+
+            if (!string.IsNullOrEmpty(ipList))
+            {
+                return ipList.Split(',')[0];
+            }
+
+            return Request.ServerVariables["REMOTE_ADDR"];
+        }
+
+        public ActionResult UserAddSegment(int id, string userTitle, string userDescription, string userName, string userEmail, string userWebsite, string ArticleSlug)
+        {
+
+
+
+            var newSegment = new ArticleSegmentModel();
+            newSegment.ArticleId = id;
+
+            newSegment.ArticleSegmentTitle = userTitle;
+            newSegment.ArticleSegmentPar1 = userDescription;
+
+            newSegment.ArticleSegmentAuthor = userName;
+            newSegment.ArticleSegmentEmail = userEmail;
+            newSegment.ArticleSegmentWebsite = userWebsite;
+
+
+
+            newSegment.Published = false;
+            db.ArticleSegments.Add(newSegment);
+            db.SaveChanges();
+
+            var article = db.Articles.Where(x => x.ArticleSlug == ArticleSlug).Include(x => x.ArticleSegments).ToList();
+
+
+            List<ProductModel> sortedProducts = db.Products.OrderByDescending(x => x.ProductPrice).ToList();
+            ViewBag.Products = sortedProducts;
+            ViewBag.First = sortedProducts.First();
+
+
+            return RedirectToAction("Post", new {articleSlug = ArticleSlug });
+        }
+
+        public ActionResult DeleteSegment(int segId, string ArticleSlug)
+        {
+
+            var thisArticleSeg = db.ArticleSegments.FirstOrDefault(x => x.ArticleSegmentId == segId);
+
+            db.ArticleSegments.Remove(thisArticleSeg);
+            db.SaveChanges();
+
+            return RedirectToAction("Post", new { articleSlug = ArticleSlug });
         }
 
 

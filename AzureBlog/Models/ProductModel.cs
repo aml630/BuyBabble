@@ -12,8 +12,6 @@ namespace AzureBlog.Models
 
     public class ProductModel
     {
-
-      
             [Key]
             public int ProductId { get; set; }
 
@@ -25,9 +23,11 @@ namespace AzureBlog.Models
             public string ProductDescription { get; set; }
             public bool ProductArticle { get; set; }
             public int CategoryId { get; set; }
-            public virtual CategoryModel Category { get; set; }
-            public int ArticleId { get; set; }
+        public virtual CategoryModel Category { get; set; }
+        public int ArticleId { get; set; }
 
+        //public int ArticleSegmentId { get; set; }
+        public virtual ArticleSegmentModel ArticleSegment { get; set; }
 
         public virtual ICollection<ReviewModel> Reviews { get; set; }
 

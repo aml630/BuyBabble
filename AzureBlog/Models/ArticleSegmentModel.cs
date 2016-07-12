@@ -27,6 +27,15 @@ namespace AzureBlog.Models
         public string ArticleSegmentImage { get; set; }
         public string ArticleSegmentVideo { get; set; }
 
+        public string ArticleSegmentAuthor { get; set; }
+        public string ArticleSegmentEmail { get; set; }
+        public string ArticleSegmentWebsite { get; set; }
+
+
+
+
+        public bool Published { get; set; }
+
         public int Votes { get; set; }
 
         public int ArticleId { get; set; }

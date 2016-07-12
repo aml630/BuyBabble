@@ -301,6 +301,30 @@
     <Compile Include="Migrations\201606280208113_segmentVotes.Designer.cs">
       <DependentUpon>201606280208113_segmentVotes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201607112003359_oldStuff.cs" />
+    <Compile Include="Migrations\201607112003359_oldStuff.Designer.cs">
+      <DependentUpon>201607112003359_oldStuff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607112035155_segmentPublished.cs" />
+    <Compile Include="Migrations\201607112035155_segmentPublished.Designer.cs">
+      <DependentUpon>201607112035155_segmentPublished.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607112145241_voteOnce.cs" />
+    <Compile Include="Migrations\201607112145241_voteOnce.Designer.cs">
+      <DependentUpon>201607112145241_voteOnce.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607112154067_voteOnceChanges.cs" />
+    <Compile Include="Migrations\201607112154067_voteOnceChanges.Designer.cs">
+      <DependentUpon>201607112154067_voteOnceChanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607112224176_segmentAuthors.cs" />
+    <Compile Include="Migrations\201607112224176_segmentAuthors.Designer.cs">
+      <DependentUpon>201607112224176_segmentAuthors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607121701241_segmentParent.cs" />
+    <Compile Include="Migrations\201607121701241_segmentParent.Designer.cs">
+      <DependentUpon>201607121701241_segmentParent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ArticleModel.cs" />
@@ -312,6 +336,7 @@
     <Compile Include="Models\ResourceModel.cs" />
     <Compile Include="Models\ReviewModel.cs" />
     <Compile Include="Models\SegmentModel.cs" />
+    <Compile Include="Models\VoterModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -331,6 +356,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Pics\summerBarb.jpg" />
     <Content Include="robots.txt" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -502,6 +528,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201606280208113_segmentVotes.resx">
       <DependentUpon>201606280208113_segmentVotes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607112003359_oldStuff.resx">
+      <DependentUpon>201607112003359_oldStuff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607112035155_segmentPublished.resx">
+      <DependentUpon>201607112035155_segmentPublished.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607112145241_voteOnce.resx">
+      <DependentUpon>201607112145241_voteOnce.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607112154067_voteOnceChanges.resx">
+      <DependentUpon>201607112154067_voteOnceChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607112224176_segmentAuthors.resx">
+      <DependentUpon>201607112224176_segmentAuthors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607121701241_segmentParent.resx">
+      <DependentUpon>201607121701241_segmentParent.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
