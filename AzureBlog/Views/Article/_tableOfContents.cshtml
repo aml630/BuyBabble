@@ -6,13 +6,12 @@
     {
         <div class="holderDiv">
 
-            @foreach (var product in ViewBag.Products)
-            {
-                if (product.ArticleId == title.ArticleSegmentId)
-                {
+         @foreach (var product in title.Products)
+         {
+
                     <img class="tblImgs" src="@product.ProductImg" height="50" width="50" />
                     break;
-                }
+                
 
             }
             <a class="verticalAlign" href="#@title.ArticleSegmentTitle">@title.ArticleSegmentTitle</a>

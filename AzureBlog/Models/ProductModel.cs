@@ -13,7 +13,9 @@ namespace AzureBlog.Models
     public class ProductModel
     {
             [Key]
-            public int ProductId { get; set; }
+  
+
+        public int ProductId { get; set; }
 
             public string ProductName { get; set; }
             public string ProductSlug { get; set; }
@@ -22,14 +24,16 @@ namespace AzureBlog.Models
             public double ProductPrice { get; set; }
             public string ProductDescription { get; set; }
             public bool ProductArticle { get; set; }
-            public int CategoryId { get; set; }
-        public virtual CategoryModel Category { get; set; }
-        public int ArticleId { get; set; }
+        [ForeignKey("ArticleSegment")]
+        public int ArticleSegmentId { get; set; }
 
-        //public int ArticleSegmentId { get; set; }
-        public virtual ArticleSegmentModel ArticleSegment { get; set; }
+            public virtual ArticleSegmentModel ArticleSegment { get; set; }
 
-        public virtual ICollection<ReviewModel> Reviews { get; set; }
+
+
+        //public int ArticleId { get; set; }
+
+
 
 
     }

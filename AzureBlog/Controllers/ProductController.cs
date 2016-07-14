@@ -16,34 +16,34 @@ namespace AzureBlog.Controllers
         public ActionResult Index(int id)
         {
             var clickedProduct = db.Products.FirstOrDefault(x => x.ProductId == id);
-            ViewBag.Products = db.Products.Where(x => x.CategoryId == clickedProduct.CategoryId);
+            //ViewBag.Products = db.Products.Where(x => x.CategoryId == clickedProduct.CategoryId);
             return View(clickedProduct);
         }
 
 
-        public ActionResult AddReview(int productId, int testStars, string reviewText, string reviewAuthor, string categorySlug)
-        {
+        //public ActionResult AddReview(int productId, int testStars, string reviewText, string reviewAuthor, string categorySlug)
+        //{
 
-            string thisIp = GetUserIP();
+        //    string thisIp = GetUserIP();
 
-            var alreadyReviewed = db.Reviews.FirstOrDefault(review => review.ReviewIP == thisIp && review.ProductId ==productId);
+        //    var alreadyReviewed = db.Reviews.FirstOrDefault(review => review.ReviewIP == thisIp && review.ProductId ==productId);
 
-                 if(alreadyReviewed == null)
-            {
-                var newReview = new ReviewModel();
-                newReview.ProductId = productId;
-                newReview.ReviewStars = testStars;
-                newReview.ReviewText = reviewText;
-                newReview.ReviewAuthor = reviewAuthor;
-                newReview.ReviewIP = thisIp;
+        //         if(alreadyReviewed == null)
+        //    {
+        //        var newReview = new ReviewModel();
+        //        newReview.ProductId = productId;
+        //        newReview.ReviewStars = testStars;
+        //        newReview.ReviewText = reviewText;
+        //        newReview.ReviewAuthor = reviewAuthor;
+        //        newReview.ReviewIP = thisIp;
 
-                db.Reviews.Add(newReview);
-                db.SaveChanges();
-            }
+        //        db.Reviews.Add(newReview);
+        //        db.SaveChanges();
+        //    }
 
        
-            return RedirectToAction("Index", "Category", new { id = categorySlug});
-        }
+        //    return RedirectToAction("Index", "Category", new { id = categorySlug});
+        //}
 
 
         private string GetUserIP()

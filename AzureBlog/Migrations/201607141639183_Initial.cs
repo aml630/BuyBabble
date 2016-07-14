@@ -3,34 +3,68 @@ namespace AzureBlog.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class AddKey : DbMigration
+    public partial class Initial : DbMigration
     {
         public override void Up()
         {
             CreateTable(
-                "dbo.Categories",
+                "dbo.Articles",
                 c => new
                     {
-                        CategoryId = c.Int(nullable: false, identity: true),
-                        CategoryName = c.String(nullable: false),
+                        ArticleId = c.Int(nullable: false, identity: true),
+                        ArticleName = c.String(),
+                        ArticleSlug = c.String(),
+                        ArticlePic = c.String(),
+                        ArticlePublished = c.Boolean(nullable: false),
+                        Intro = c.String(),
+                        FbShares = c.Int(nullable: false),
+                        TwitShares = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.CategoryId);
+                .PrimaryKey(t => t.ArticleId);
+            
+            CreateTable(
+                "dbo.ArticleSegments",
+                c => new
+                    {
+                        ArticleSegmentId = c.Int(nullable: false, identity: true),
+                        ArticleSegmentTitle = c.String(),
+                        ArticleSegmentPar1 = c.String(),
+                        ArticleSegmentPar2 = c.String(),
+                        ArticleSegmentPar3 = c.String(),
+                        ArticleSegmentPar4 = c.String(),
+                        ArticleSegmentPar5 = c.String(),
+                        ArticleSegmentPar6 = c.String(),
+                        ArticleSegmentPar7 = c.String(),
+                        ArticleSegmentImage = c.String(),
+                        ArticleSegmentVideo = c.String(),
+                        ArticleSegmentAuthor = c.String(),
+                        ArticleSegmentEmail = c.String(),
+                        ArticleSegmentWebsite = c.String(),
+                        Published = c.Boolean(nullable: false),
+                        Votes = c.Int(nullable: false),
+                        ArticleId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.ArticleSegmentId)
+                .ForeignKey("dbo.Articles", t => t.ArticleId, cascadeDelete: true)
+                .Index(t => t.ArticleId);
             
             CreateTable(
                 "dbo.Products",
                 c => new
                     {
                         ProductId = c.Int(nullable: false, identity: true),
-                        ProductName = c.String(nullable: false),
+                        ProductName = c.String(),
+                        ProductSlug = c.String(),
                         ProductImg = c.String(),
                         ProductLink = c.String(),
-                        ProductPrice = c.Int(nullable: false),
+                        ProductPrice = c.Double(nullable: false),
                         ProductDescription = c.String(),
-                        CategoryId = c.Int(nullable: false),
+                        ProductArticle = c.Boolean(nullable: false),
+                        ArticleSegmentId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.ProductId)
-                .ForeignKey("dbo.Categories", t => t.CategoryId, cascadeDelete: true)
-                .Index(t => t.CategoryId);
+                .ForeignKey("dbo.ArticleSegments", t => t.ArticleSegmentId, cascadeDelete: true)
+                .Index(t => t.ArticleSegmentId);
             
             CreateTable(
                 "dbo.AspNetRoles",
@@ -100,6 +134,16 @@ namespace AzureBlog.Migrations
                 .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
                 .Index(t => t.UserId);
             
+            CreateTable(
+                "dbo.Voters",
+                c => new
+                    {
+                        VoterId = c.Int(nullable: false, identity: true),
+                        VoterIPAddress = c.String(),
+                        ArticleSegmentId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.VoterId);
+            
         }
         
         public override void Down()
@@ -108,21 +152,25 @@ namespace AzureBlog.Migrations
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
-            DropForeignKey("dbo.Products", "CategoryId", "dbo.Categories");
+            DropForeignKey("dbo.Products", "ArticleSegmentId", "dbo.ArticleSegments");
+            DropForeignKey("dbo.ArticleSegments", "ArticleId", "dbo.Articles");
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
-            DropIndex("dbo.Products", new[] { "CategoryId" });
+            DropIndex("dbo.Products", new[] { "ArticleSegmentId" });
+            DropIndex("dbo.ArticleSegments", new[] { "ArticleId" });
+            DropTable("dbo.Voters");
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.Products");
-            DropTable("dbo.Categories");
+            DropTable("dbo.ArticleSegments");
+            DropTable("dbo.Articles");
         }
     }
 }

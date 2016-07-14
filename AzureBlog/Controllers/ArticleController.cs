@@ -18,14 +18,11 @@ namespace AzureBlog.Controllers
         public ActionResult Post(string articleSlug)
         {
 
-            var article = db.Articles.Where(x => x.ArticleSlug == articleSlug).Include(x => x.ArticleSegments).ToList();
+            var article = db.Articles.Where(x => x.ArticleSlug == articleSlug).Include(x => x.ArticleSegments).Include(i => i.ArticleSegments.Select(c => c.Products)).ToList();
 
-            //var article = db.Articles.Where(x => x.ArticleSlug == articleSlug).Include(x => x.ArticleSegments).Include(i => i.ArticleSegments.Select(c => c.Products)).ToList();
 
-            //var testProducts = db.ArticleSegments.Where(x =>x.ArticleSegmentId == 17).Include(d=>d.Products).ToList();
-
-            List<ProductModel> sortedProducts = db.Products.OrderByDescending(x => x.ProductPrice).ToList();
-            ViewBag.Products = sortedProducts;
+            //List<ProductModel> sortedProducts = db.Products.OrderByDescending(x => x.ProductPrice).ToList();
+            //ViewBag.Products = sortedProducts;
 
             return View(article);
         }
@@ -107,9 +104,8 @@ namespace AzureBlog.Controllers
             newProduct.ProductPrice = changeNum;
             newProduct.ProductDescription = result.Items.Item[0].CustomerReviews.IFrameURL;
             newProduct.ProductArticle = false;
-            newProduct.CategoryId = 4;
-            newProduct.ArticleId = segId;
 
+            newProduct.ArticleSegmentId = segId;
 
             db.Products.Add(newProduct);
 
@@ -187,9 +183,9 @@ namespace AzureBlog.Controllers
             var article = db.Articles.Where(x => x.ArticleSlug == ArticleSlug).Include(x => x.ArticleSegments).ToList();
 
 
-            List<ProductModel> sortedProducts = db.Products.OrderByDescending(x => x.ProductPrice).ToList();
-            ViewBag.Products = sortedProducts;
-            ViewBag.First = sortedProducts.First();
+            //List<ProductModel> sortedProducts = db.Products.OrderByDescending(x => x.ProductPrice).ToList();
+            //ViewBag.Products = sortedProducts;
+            //ViewBag.First = sortedProducts.First();
 
 
             return RedirectToAction("Post", new {articleSlug = ArticleSlug });

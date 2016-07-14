@@ -66,7 +66,7 @@ namespace AzureBlog.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
+        public async Task<ActionResult> LoginUser(LoginViewModel model, string returnUrl)
         {
             if (!ModelState.IsValid)
             {
@@ -145,9 +145,11 @@ namespace AzureBlog.Controllers
         //
         // POST: /Account/Register
         [HttpPost]
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
+        [AllowAnonymous]
+
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public async Task<ActionResult> RegisterUser(RegisterViewModel model)
         {
             if (ModelState.IsValid)
             {

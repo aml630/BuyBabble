@@ -197,145 +197,17 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201605261807313_AddKey.cs" />
-    <Compile Include="Migrations\201605261807313_AddKey.Designer.cs">
-      <DependentUpon>201605261807313_AddKey.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605261825185_newMigration.cs" />
-    <Compile Include="Migrations\201605261825185_newMigration.Designer.cs">
-      <DependentUpon>201605261825185_newMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605270027206_CatPic.cs" />
-    <Compile Include="Migrations\201605270027206_CatPic.Designer.cs">
-      <DependentUpon>201605270027206_CatPic.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605272132351_ProductArticleBool.cs" />
-    <Compile Include="Migrations\201605272132351_ProductArticleBool.Designer.cs">
-      <DependentUpon>201605272132351_ProductArticleBool.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605272151536_CategoryArticleBool.cs" />
-    <Compile Include="Migrations\201605272151536_CategoryArticleBool.Designer.cs">
-      <DependentUpon>201605272151536_CategoryArticleBool.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606012303020_ProductCategorySlugs.cs" />
-    <Compile Include="Migrations\201606012303020_ProductCategorySlugs.Designer.cs">
-      <DependentUpon>201606012303020_ProductCategorySlugs.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606021711592_categoryTitleAndBody.cs" />
-    <Compile Include="Migrations\201606021711592_categoryTitleAndBody.Designer.cs">
-      <DependentUpon>201606021711592_categoryTitleAndBody.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606021744540_categoryPostStuff.cs" />
-    <Compile Include="Migrations\201606021744540_categoryPostStuff.Designer.cs">
-      <DependentUpon>201606021744540_categoryPostStuff.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606022300018_Segments.cs" />
-    <Compile Include="Migrations\201606022300018_Segments.Designer.cs">
-      <DependentUpon>201606022300018_Segments.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606022308376_SegmentsAddToApplicatinDb.cs" />
-    <Compile Include="Migrations\201606022308376_SegmentsAddToApplicatinDb.Designer.cs">
-      <DependentUpon>201606022308376_SegmentsAddToApplicatinDb.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606022324016_deleteCategorySections.cs" />
-    <Compile Include="Migrations\201606022324016_deleteCategorySections.Designer.cs">
-      <DependentUpon>201606022324016_deleteCategorySections.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606030114559_addImageAndVideoToSegment.cs" />
-    <Compile Include="Migrations\201606030114559_addImageAndVideoToSegment.Designer.cs">
-      <DependentUpon>201606030114559_addImageAndVideoToSegment.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606031613073_segmentPar2Par3.cs" />
-    <Compile Include="Migrations\201606031613073_segmentPar2Par3.Designer.cs">
-      <DependentUpon>201606031613073_segmentPar2Par3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606080013475_ResourceMOdel.cs" />
-    <Compile Include="Migrations\201606080013475_ResourceMOdel.Designer.cs">
-      <DependentUpon>201606080013475_ResourceMOdel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606080027020_ResourceMOdel2.cs" />
-    <Compile Include="Migrations\201606080027020_ResourceMOdel2.Designer.cs">
-      <DependentUpon>201606080027020_ResourceMOdel2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606152359534_reviews.cs" />
-    <Compile Include="Migrations\201606152359534_reviews.Designer.cs">
-      <DependentUpon>201606152359534_reviews.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606160003392_reviewsProductId.cs" />
-    <Compile Include="Migrations\201606160003392_reviewsProductId.Designer.cs">
-      <DependentUpon>201606160003392_reviewsProductId.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606160012056_reviewsStars.cs" />
-    <Compile Include="Migrations\201606160012056_reviewsStars.Designer.cs">
-      <DependentUpon>201606160012056_reviewsStars.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606160340075_reviewsProductParent.cs" />
-    <Compile Include="Migrations\201606160340075_reviewsProductParent.Designer.cs">
-      <DependentUpon>201606160340075_reviewsProductParent.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606192232266_Shares.cs" />
-    <Compile Include="Migrations\201606192232266_Shares.Designer.cs">
-      <DependentUpon>201606192232266_Shares.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606232321237_article.cs" />
-    <Compile Include="Migrations\201606232321237_article.Designer.cs">
-      <DependentUpon>201606232321237_article.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606232340598_articleChange.cs" />
-    <Compile Include="Migrations\201606232340598_articleChange.Designer.cs">
-      <DependentUpon>201606232340598_articleChange.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606240059099_articleSegment.cs" />
-    <Compile Include="Migrations\201606240059099_articleSegment.Designer.cs">
-      <DependentUpon>201606240059099_articleSegment.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606250456033_priceDouble.cs" />
-    <Compile Include="Migrations\201606250456033_priceDouble.Designer.cs">
-      <DependentUpon>201606250456033_priceDouble.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606280035450_articleSegId.cs" />
-    <Compile Include="Migrations\201606280035450_articleSegId.Designer.cs">
-      <DependentUpon>201606280035450_articleSegId.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606280208113_segmentVotes.cs" />
-    <Compile Include="Migrations\201606280208113_segmentVotes.Designer.cs">
-      <DependentUpon>201606280208113_segmentVotes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201607112003359_oldStuff.cs" />
-    <Compile Include="Migrations\201607112003359_oldStuff.Designer.cs">
-      <DependentUpon>201607112003359_oldStuff.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201607112035155_segmentPublished.cs" />
-    <Compile Include="Migrations\201607112035155_segmentPublished.Designer.cs">
-      <DependentUpon>201607112035155_segmentPublished.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201607112145241_voteOnce.cs" />
-    <Compile Include="Migrations\201607112145241_voteOnce.Designer.cs">
-      <DependentUpon>201607112145241_voteOnce.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201607112154067_voteOnceChanges.cs" />
-    <Compile Include="Migrations\201607112154067_voteOnceChanges.Designer.cs">
-      <DependentUpon>201607112154067_voteOnceChanges.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201607112224176_segmentAuthors.cs" />
-    <Compile Include="Migrations\201607112224176_segmentAuthors.Designer.cs">
-      <DependentUpon>201607112224176_segmentAuthors.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201607121701241_segmentParent.cs" />
-    <Compile Include="Migrations\201607121701241_segmentParent.Designer.cs">
-      <DependentUpon>201607121701241_segmentParent.cs</DependentUpon>
+    <Compile Include="Migrations\201607141639183_Initial.cs" />
+    <Compile Include="Migrations\201607141639183_Initial.Designer.cs">
+      <DependentUpon>201607141639183_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ArticleModel.cs" />
     <Compile Include="Models\ArticleSegmentModel.cs" />
-    <Compile Include="Models\CategoryModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ProductModel.cs" />
-    <Compile Include="Models\ResourceModel.cs" />
-    <Compile Include="Models\ReviewModel.cs" />
-    <Compile Include="Models\SegmentModel.cs" />
     <Compile Include="Models\VoterModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -452,101 +324,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201605261807313_AddKey.resx">
-      <DependentUpon>201605261807313_AddKey.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605261825185_newMigration.resx">
-      <DependentUpon>201605261825185_newMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605270027206_CatPic.resx">
-      <DependentUpon>201605270027206_CatPic.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605272132351_ProductArticleBool.resx">
-      <DependentUpon>201605272132351_ProductArticleBool.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605272151536_CategoryArticleBool.resx">
-      <DependentUpon>201605272151536_CategoryArticleBool.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606012303020_ProductCategorySlugs.resx">
-      <DependentUpon>201606012303020_ProductCategorySlugs.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606021711592_categoryTitleAndBody.resx">
-      <DependentUpon>201606021711592_categoryTitleAndBody.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606021744540_categoryPostStuff.resx">
-      <DependentUpon>201606021744540_categoryPostStuff.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606022300018_Segments.resx">
-      <DependentUpon>201606022300018_Segments.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606022308376_SegmentsAddToApplicatinDb.resx">
-      <DependentUpon>201606022308376_SegmentsAddToApplicatinDb.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606022324016_deleteCategorySections.resx">
-      <DependentUpon>201606022324016_deleteCategorySections.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606030114559_addImageAndVideoToSegment.resx">
-      <DependentUpon>201606030114559_addImageAndVideoToSegment.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606031613073_segmentPar2Par3.resx">
-      <DependentUpon>201606031613073_segmentPar2Par3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606080013475_ResourceMOdel.resx">
-      <DependentUpon>201606080013475_ResourceMOdel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606080027020_ResourceMOdel2.resx">
-      <DependentUpon>201606080027020_ResourceMOdel2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606152359534_reviews.resx">
-      <DependentUpon>201606152359534_reviews.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606160003392_reviewsProductId.resx">
-      <DependentUpon>201606160003392_reviewsProductId.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606160012056_reviewsStars.resx">
-      <DependentUpon>201606160012056_reviewsStars.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606160340075_reviewsProductParent.resx">
-      <DependentUpon>201606160340075_reviewsProductParent.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606192232266_Shares.resx">
-      <DependentUpon>201606192232266_Shares.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606232321237_article.resx">
-      <DependentUpon>201606232321237_article.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606232340598_articleChange.resx">
-      <DependentUpon>201606232340598_articleChange.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606240059099_articleSegment.resx">
-      <DependentUpon>201606240059099_articleSegment.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606250456033_priceDouble.resx">
-      <DependentUpon>201606250456033_priceDouble.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606280035450_articleSegId.resx">
-      <DependentUpon>201606280035450_articleSegId.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606280208113_segmentVotes.resx">
-      <DependentUpon>201606280208113_segmentVotes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201607112003359_oldStuff.resx">
-      <DependentUpon>201607112003359_oldStuff.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201607112035155_segmentPublished.resx">
-      <DependentUpon>201607112035155_segmentPublished.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201607112145241_voteOnce.resx">
-      <DependentUpon>201607112145241_voteOnce.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201607112154067_voteOnceChanges.resx">
-      <DependentUpon>201607112154067_voteOnceChanges.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201607112224176_segmentAuthors.resx">
-      <DependentUpon>201607112224176_segmentAuthors.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201607121701241_segmentParent.resx">
-      <DependentUpon>201607121701241_segmentParent.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201607141639183_Initial.resx">
+      <DependentUpon>201607141639183_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -14,6 +14,7 @@ namespace AzureBlog.Models
     {
 
         [Key]
+      
         public int ArticleSegmentId { get; set; }
         public string ArticleSegmentTitle { get; set; }
         public string ArticleSegmentPar1 { get; set; }
@@ -37,7 +38,7 @@ namespace AzureBlog.Models
         public bool Published { get; set; }
 
         public int Votes { get; set; }
-
+        [ForeignKey("Article")]
         public int ArticleId { get; set; }
 
         public virtual ArticleModel Article { get; set; }

@@ -31,11 +31,9 @@ namespace AzureBlog.Models
         }
 
         public DbSet<ProductModel> Products { get; set; }
-        public DbSet<CategoryModel> Categories { get; set; }
-        public DbSet<SegmentModel> Segments { get; set; }
+
         public DbSet<ArticleSegmentModel> ArticleSegments { get; set; }
-        public DbSet<ResourceModel> Resources { get; set; }
-        public DbSet<ReviewModel> Reviews { get; set; }
+
         public DbSet<ArticleModel> Articles { get; set; }
 
         public DbSet<VoterModel> Voters { get; set; }

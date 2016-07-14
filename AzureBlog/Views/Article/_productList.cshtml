@@ -2,12 +2,10 @@
 
 
 <div class="segmentProducts">
-    @foreach (var product in ViewBag.Products)
-    {
-        if (product.ArticleId == Model.ArticleSegmentId)
-        {
 
-   
+   @foreach(var product in Model.Products)
+   {
+
 
             <div class="rowAndButton">
                 <a class="productListLink" href="@product.ProductLink">
@@ -23,11 +21,7 @@
                 </a>
                
             </div>
-    
-
-        }
-
-    }
+   }
 
 </div>
 

@@ -9,7 +9,7 @@ namespace AzureBlog.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(AzureBlog.Models.ApplicationDbContext context)

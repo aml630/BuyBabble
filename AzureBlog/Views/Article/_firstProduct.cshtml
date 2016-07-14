@@ -2,10 +2,9 @@
 
 
 
-@foreach (var firstProduct in ViewBag.Products)
+@foreach (var firstProduct in Model.Products)
 {
-    if (firstProduct.ArticleId == Model.ArticleSegmentId)
-    {
+
         <div class="rowAndButton">
             <a class="productLink" href="@firstProduct.ProductLink">
                 <div class="productRow">
@@ -21,7 +20,7 @@
         break;
 
 
-    }
+    
 }
 
 <style>
