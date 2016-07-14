@@ -438,6 +438,7 @@
     <Content Include="Views\Article\_userAddSegment.cshtml" />
     <Content Include="Views\Article\_addProduct.cshtml" />
     <Content Include="Views\Article\_segmentBox.cshtml" />
+    <Content Include="Views\Article\_editSegment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

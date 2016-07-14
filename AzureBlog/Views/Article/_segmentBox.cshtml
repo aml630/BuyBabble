@@ -1,1 +1,43 @@
-﻿
+﻿@model AzureBlog.Models.ArticleSegmentModel
+
+<form class="upvote" action="~/Default/Article/Upvote">
+    <input name="segId" hidden value="@Model.ArticleSegmentId" />
+
+
+    <button id="heart">
+        @Model.Votes
+    </button>
+</form>
+
+<p id="@Model.ArticleSegmentTitle" class="segTitle"> @Model.ArticleSegmentTitle</p>
+
+@if (Model.ArticleSegmentVideo != null && Model.ArticleSegmentVideo != "Optional Video")
+{
+    <iframe class="segmentVideo" src="https://www.youtube.com/embed/@Model.ArticleSegmentVideo" frameborder="0" allowfullscreen></iframe>
+}
+
+
+
+<p class="bodyText">
+    @Model.ArticleSegmentPar1
+</p>
+
+
+
+
+<p class="bodyText">
+    @Model.ArticleSegmentPar2
+</p>
+<p class="bodyText">
+    @Model.ArticleSegmentPar3
+</p>
+
+@if (Model.ArticleSegmentAuthor != null && Model.ArticleSegmentWebsite != null)
+{
+    <a href="@Model.ArticleSegmentWebsite">-@Model.ArticleSegmentAuthor</a>
+}
+else if (Model.ArticleSegmentAuthor != null)
+{
+    <p>-@Model.ArticleSegmentAuthor</p>
+}
+

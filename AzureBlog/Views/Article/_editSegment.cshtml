@@ -1,0 +1,20 @@
+﻿@model AzureBlog.Models.ArticleSegmentModel
+
+<button class="btn btn-success showEdit">Edit Segment</button>
+<form class="editForm" action="~/Default/Article/EditSegment">
+    <h2>Edit Segment</h2>
+
+    <input name="segId" hidden value="@Model.ArticleSegmentId" />
+    <hr />
+    <input name="Title" value="@Model.ArticleSegmentTitle" placeholder="Segment Title" />
+    <hr />
+    <textarea class="editSeg" name="Body" value="Par1" placeholder="Segment Body">@Model.ArticleSegmentPar1</textarea>
+    <hr />
+    <textarea class="editSeg" name="Par2" value="Par2" placeholder="Optional Par2">@Model.ArticleSegmentPar2</textarea>
+    <hr />
+    <textarea class="editSeg" name="Par3" value="Par3" placeholder="Optional Par3">@Model.ArticleSegmentPar3</textarea>
+    <hr />
+    <input name="Video" value="@Model.ArticleSegmentVideo" />
+    <hr />
+    <button>Submit Changes</button>
+</form>

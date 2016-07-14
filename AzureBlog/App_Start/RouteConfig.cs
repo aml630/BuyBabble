@@ -22,11 +22,7 @@ namespace AzureBlog
            url: "",
            defaults: new { controller = "Home", action = "Index" }
           );
-             routes.MapRoute(
-             name: "Post",
-             url: "{articleSlug}",
-             defaults: new { controller = "Article", action = "Post" }
-         );
+ 
             routes.MapRoute(
             name: "CatIndex",
             url: "Category/Index",
@@ -64,14 +60,18 @@ namespace AzureBlog
               defaults: new { controller = "Category", action = "Product" }
               //constraints: new { id = @"([a-z]+-?)+", productId = @"([a-z]+-?)+" }
           );
+            routes.MapRoute(
+             name: "Post",
+             url: "{articleSlug}",
+             defaults: new { controller = "Article", action = "Post" }
+            );
+            // routes.MapRoute(
+            //    name: "Category",
+            //    url: "{id}",
+            //    defaults: new { controller = "Category", action = "Index" }
+            //    //constraints: new {id = @"([a-z]+-?)+" }
+            //);
 
-           // routes.MapRoute(
-           //    name: "Category",
-           //    url: "{id}",
-           //    defaults: new { controller = "Category", action = "Index" }
-           //    //constraints: new {id = @"([a-z]+-?)+" }
-           //);
-   
 
             routes.MapRoute(
             name: "newDefault",

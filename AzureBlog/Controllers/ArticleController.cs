@@ -61,17 +61,31 @@ namespace AzureBlog.Controllers
             db.ArticleSegments.Add(newSegment);
             db.SaveChanges();
 
-            var article = db.Articles.Where(x => x.ArticleSlug == ArticleSlug).Include(x => x.ArticleSegments).ToList();
 
 
-            List<ProductModel> sortedProducts = db.Products.OrderByDescending(x => x.ProductPrice).ToList();
-            ViewBag.Products = sortedProducts;
-            ViewBag.First = sortedProducts.First();
-
-            return View("Post", article);
+            return RedirectToAction("Post", new { articleSlug = ArticleSlug });
         }
 
-        public ActionResult AddProduct(int segId, string ASIN, string artSlug)
+        public ActionResult EditSegment(string Title, string Body, string Par2, string Par3, string Video, int segId)
+        {
+            var thisSeg = db.ArticleSegments.FirstOrDefault(x => x.ArticleSegmentId == segId);
+
+            thisSeg.ArticleSegmentTitle = Title;
+            thisSeg.ArticleSegmentPar1 = Body;
+            thisSeg.ArticleSegmentPar2 = Par2;
+            thisSeg.ArticleSegmentPar3 = Par3;
+            thisSeg.ArticleSegmentVideo = Video;
+
+
+            db.SaveChanges();
+
+            var article = db.Articles.FirstOrDefault(x => x.ArticleId == thisSeg.ArticleId);
+
+
+            return RedirectToAction("Post", new { articleSlug = article.ArticleSlug });
+        }
+
+        public ActionResult AddProduct(int segId, string ASIN)
         {
 
 
@@ -101,19 +115,22 @@ namespace AzureBlog.Controllers
 
             db.SaveChanges();
 
-            var article = db.Articles.Where(x => x.ArticleSlug == artSlug).Include(x => x.ArticleSegments).ToList();
+            var thisSeg = db.ArticleSegments.FirstOrDefault(x => x.ArticleSegmentId == segId);
 
-            ViewBag.Products = db.Products.ToList();
+            var article = db.Articles.FirstOrDefault(x => x.ArticleId == thisSeg.ArticleId);
 
 
-            return RedirectToAction("Post", new { articleSlug = artSlug});
+
+            return RedirectToAction("Post", new { articleSlug = article.ArticleSlug});
         }
 
-        public ActionResult UpVote(int segId, string artSlug)
+        public ActionResult UpVote(int segId)
         {
             string thisIp = GetUserIP();
 
             var alreadyVoted = db.Voters.FirstOrDefault(voter => voter.VoterIPAddress == thisIp && voter.ArticleSegmentId == segId);
+
+            ArticleSegmentModel thisSeg = db.ArticleSegments.FirstOrDefault(x => x.ArticleSegmentId == segId);
 
             if (alreadyVoted == null)
             {
@@ -121,27 +138,17 @@ namespace AzureBlog.Controllers
                 newVote.VoterIPAddress = thisIp;
                 newVote.ArticleSegmentId = segId;
                 db.Voters.Add(newVote);
-                //db.SaveChanges();
 
-                ArticleSegmentModel thisSeg = db.ArticleSegments.FirstOrDefault(x => x.ArticleSegmentId == segId);
+                
                 thisSeg.Votes = thisSeg.Votes + 1;
                 db.SaveChanges();
             }
 
-            //List<ArticleSegmentModel> sortedLiskt = new List<ArticleSegmentModel>();
-
-            //var thisArticle = db.Articles.FirstOrDefault(x => x.ArticleSlug == artSlug);
-
-            //var allSegments = db.ArticleSegments.OrderBy(x =>x.Votes).Where(s => s.Article.ToList();
+            var article = db.Articles.FirstOrDefault(x => x.ArticleId == thisSeg.ArticleId);
 
 
-            var article = db.Articles.Where(x => x.ArticleSlug == artSlug).Include(x => x.ArticleSegments).ToList();
 
-            //var sortedArticles = article.OrderBy(segment => segment.ArticleSegments.Votes);
-
-            ViewBag.Products = db.Products.ToList();
-
-            return View("Post", article);
+            return RedirectToAction("Post", new { articleSlug = article.ArticleSlug });
         }
 
         private string GetUserIP()

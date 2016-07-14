@@ -206,3 +206,12 @@ input, select, textarea {
         margin-bottom: 30px;
 
 }
+
+    .editSeg {
+        width: 100%;
+        height: 300px;
+    }
+
+    .editForm {
+        display: none;
+    }
