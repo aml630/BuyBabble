@@ -21,9 +21,6 @@ namespace AzureBlog.Controllers
             var article = db.Articles.Where(x => x.ArticleSlug == articleSlug).Include(x => x.ArticleSegments).Include(i => i.ArticleSegments.Select(c => c.Products)).ToList();
 
 
-            //List<ProductModel> sortedProducts = db.Products.OrderByDescending(x => x.ProductPrice).ToList();
-            //ViewBag.Products = sortedProducts;
-
             return View(article);
         }
         public ActionResult CreateArticle(string name, string slug, string pic)
@@ -88,13 +85,13 @@ namespace AzureBlog.Controllers
 
 
             var authentication = new AmazonAuthentication();
-            authentication.AccessKey = "AKIAICYKGU63S3DNQMZQ";
-            authentication.SecretKey = "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";
+            authentication.AccessKey = "x";
+            authentication.SecretKey ="x";
 
             var wrapper = new AmazonWrapper(authentication, AmazonEndpoint.US, "alexl0a-20");
             var result = wrapper.Lookup(ASIN);
 
-            var changeNum = Double.Parse(String.Format("{0,0:N2}", Int32.Parse(result.Items.Item[0].OfferSummary.LowestNewPrice.Amount) / 100.0));
+            var changeNum = Double.Parse(String.Format("{0,0:N2}", Int32.Parse(result.Items.Item[0].Offers.Offer[0].OfferListing[0].Price.Amount) / 100.0));
 
             var newProduct = new ProductModel();
             newProduct.ProductName = result.Items.Item[0].ItemAttributes.Title;
@@ -182,10 +179,6 @@ namespace AzureBlog.Controllers
 
             var article = db.Articles.Where(x => x.ArticleSlug == ArticleSlug).Include(x => x.ArticleSegments).ToList();
 
-
-            //List<ProductModel> sortedProducts = db.Products.OrderByDescending(x => x.ProductPrice).ToList();
-            //ViewBag.Products = sortedProducts;
-            //ViewBag.First = sortedProducts.First();
 
 
             return RedirectToAction("Post", new {articleSlug = ArticleSlug });
