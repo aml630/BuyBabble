@@ -5,7 +5,7 @@ By: Alex Larson
 
 ## Description
 
-<p>A Content Management System for creating product based informational articles and product comparisons.  Utilizes the Amazon API in order to facilitate easy updates and the Three JS library for visual effects.  Check out a live version at www.buybabble.com</p>
+<p>A Content Management System for creating product based informational articles and product comparisons.  Utilizes the Amazon API in order to facilitate easy updates and the Three JS library for visual effects.  Check out a live version at http://azureblogsimple2506.azurewebsites.net</p>
 
 ## Setup/Installation Requirements
 * Clone the repository.
